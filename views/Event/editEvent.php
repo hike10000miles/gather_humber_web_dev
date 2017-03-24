@@ -49,14 +49,17 @@
                 </div>
                 <div>
                     <label for="StartDate">Event Start Date</label>
-                    <input type="datetime-local" name="StartDate" value=<?php echo $event->getStartDate();?>/>
+                    <p>Old:<?php echo $event->getStartDate();?></p>
+                    New: <input type="datetime-local" name="StartDate" />
                 </div>
                 <div>
                     <label for="Duration">Event Duration</label>
-                    <input type="number" name="Duration" value=<?php echo $event->getDuration();?>/>
+                    <input type="number" name="Duration" value=<?php echo $event->getDuration();?> />
                 </div>
                 <div>
                     <label for="LocationId">Event Location</label>
+                    <p>OLd Location = <p>
+                    <p>Select new location: </p>
                     <select name="LocationId" >
                         <?php foreach ($allLocations as $location) {
                             if($event->getLocationId() == $location->getLocationId()) {
@@ -69,7 +72,7 @@
                 </div>
                 <div>
                     <label for="Description">Description</label>
-                    <textarea name="Description" value=<?php echo $event->getDescription();?>></textarea>
+                    <textarea name="Description" value=<?php echo $event->getDescription();?> ></textarea>
                 </div>
                 <div>
                     <input type="submit" value="Submit"/>

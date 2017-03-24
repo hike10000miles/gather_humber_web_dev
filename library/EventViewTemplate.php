@@ -9,13 +9,12 @@ class EventViewTemplate
 
     public function displayEventDetailsIndex($link="views/Event/")
     {   $temp = $this->eventModel->getEventId();
-        echo $temp;
         return "<div>
                     <h2><a href='". $link. "event.php" ."?id=". $this->eventModel->getEventId() ."'>". $this->eventModel->getName() ."</a></h2>
                     <p>". $this->eventModel->getStartDate() ."</p>
                     <p>".$this->eventModel->getBusinessName()."</p>
                     <p>". $this->eventModel->getStreetName() . " ". $this->eventModel->getProvince() . " ". $this->eventModel->getCountry(). "</p>
-                    <p>Edit</p>
+                    <p><a href='".$link.'editEvent.php?id='.$this->eventModel->getEventId()."'>Edit<a></p>
                     <p><a href='".$link."delete.php?id=".$this->eventModel->getEventId()."'>Delete</a></p>
                 </div>";
     }
