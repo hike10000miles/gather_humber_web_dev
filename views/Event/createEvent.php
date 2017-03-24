@@ -14,7 +14,7 @@
             include __root."views/components/header.php";
             
             $db = Connect::dbConnect();
-            if(isset($_POST['UserId']) && isset($_POST['Name']) && isset($_POST['Duration']) && isset($_POST['StartDate']) 
+            if(isset($_POST['UsersId']) && isset($_POST['Name']) && isset($_POST['Duration']) && isset($_POST['StartDate']) 
                && isset($_POST['LocationId']) && isset($_POST['Description'])){
                 $event = new EventModel($_POST);
                 $eventConnect = new EventConnect($db);
@@ -33,7 +33,7 @@
 
         <div>
             <form action="createEvent.php" method="POST">
-                <input type="text" value="1" name="UserId" hidden/>
+                <input type="text" value="1" name="UsersId" hidden/>
                 <div>
                     <label for="Name">Event Name</label>
                     <input type="text" name="Name" />

@@ -7,19 +7,20 @@ class LocationViewTemplate
         $this->_locationModel = $locationModel;
     }
 
-    public function displayLocationDetails()
+    public function displayLocationDetails($link="views/Location/")
     {
         return "<div>
                     <p>". $this->_locationModel->getStreetName() ."</p>
                     <p>".$this->_locationModel->getPostalCode()."</p>
                     <p>". $this->_locationModel->getCity() . " ". $this->_locationModel->getProvince() . " ". $this->_locationModel->getCountry(). "</p>
-                    <p><a href='delete.php?id=".$this->_locationModel->getLocationId()."'>Delete</a></p>
+                    <p><a href='".$link."editLocation.php?id=".$this->_locationModel->getLocationId()."'>Edit</a></p>
+                    <p><a href='".$link."delete.php?id=".$this->_locationModel->getLocationId()."'>Delete</a></p>
                 </div>";
     }
 
     public function displayLocationEditForm()
     {
-        return "<form action='Views/Location/editLocation.php' method='POST' >
+        return "<form action='editLocation.php' method='POST' >
                 <input type='text' name='Id' value='".$this->_locationModel->getLocationId()."' hidden />
                 <div>
                     <label for='StreetName'>Street Name:</label>

@@ -15,7 +15,7 @@
         public function getEvents()
         {
             $allEvents = array();
-            $sqlQuery = "SELECT e.*, l.*, b.name BusinessName FROM events e JOIN location l ON e.id = l.id JOIN business b ON b.locationId = l.id;";
+            $sqlQuery = "SELECT e.*, l.*, b.name BussinessName FROM events e JOIN location l ON e.LocationId = l.Id JOIN business b ON b.LocationId = l.Id;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt -> execute();
             $results = $pdostmt -> fetchAll();
@@ -42,7 +42,7 @@
             return $result;
         }
         public function getEvent($id) {
-            $sqlQuery = "SELECT e.*, l.*, b.name as BusinessName FROM events e JOIN location L ON e.id = l.id JOIN business b ON b.locationId = l.id WHERE e.Id = :id;";
+            $sqlQuery = "SELECT e.*, l.*, b.name as BusinessName FROM events e JOIN location L ON e.LocationId = l.Id JOIN business b ON b.LocationId = l.Id WHERE e.Id = :id;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt->bindValue(":id", $id, PDO::PARAM_STR);
             $pdostmt -> execute();

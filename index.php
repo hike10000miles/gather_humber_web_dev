@@ -37,12 +37,16 @@
     ?>
     <!--List of all events-->
     <section>
+        <h2>Events</h2>
         <?php
-        
             foreach ($allEventsTemplates as $template) {
                 echo $template->displayEventDetailsIndex();
             }
-
+        ?>
+    </section>
+    <section>
+        <h2>Locations</h2>
+        <?php
             foreach ($allLocationsTemplates as $template) {
                 echo $template->displayLocationDetails();
             }
