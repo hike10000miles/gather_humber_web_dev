@@ -15,7 +15,8 @@
         public function getEvents()
         {
             $allEvents = array();
-            $sqlQuery = "SELECT e.*, l.*, b.name BussinessName FROM events e JOIN location l ON e.LocationId = l.Id JOIN business b ON b.LocationId = l.Id;";
+            //$sqlQuery = "SELECT e.*, l.*, b.name BussinessName FROM events e JOIN location l ON e.LocationId = l.Id JOIN business b ON b.LocationId = l.Id;";
+            $sqlQuery = "SELECT e.*, l.* FROM events e JOIN location l ON e.LocationId = l.Id;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt -> execute();
             $results = $pdostmt -> fetchAll();

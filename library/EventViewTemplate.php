@@ -8,7 +8,8 @@ class EventViewTemplate
     }
 
     public function displayEventDetailsIndex($link="views/Event/")
-    {
+    {   $temp = $this->eventModel->getEventId();
+        echo $temp;
         return "<div>
                     <h2><a href='". $link. "event.php" ."?id=". $this->eventModel->getEventId() ."'>". $this->eventModel->getName() ."</a></h2>
                     <p>". $this->eventModel->getStartDate() ."</p>

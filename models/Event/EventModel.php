@@ -17,8 +17,7 @@ class EventModel
 
     public function __construct($queryResult)
     {   
-        if(isset($queryResult['Id']) && isset($queryResult['BusinessName']) && isset($queryResult['StreetName'])) {
-            $this->_eventId = $queryResult["Id"];            
+        if(isset($queryResult['BusinessName']) && isset($queryResult['StreetName'])) {          
             $this->_businessName = $queryResult["BusinessName"];
             $this->_streetName = $queryResult["StreetName"];
             $this->_postalCode = $queryResult["PostalCode"];
@@ -29,6 +28,7 @@ class EventModel
         if(isset($queryResult['UsersId'])) {
             $this->_userId = $queryResult['UsersId'];
         }
+        $this->_eventId = $queryResult["Id"];  
         $this->_name = $queryResult["Name"];
         $this->_description = $queryResult["Description"];
         $this->_startDate = $queryResult["StartDate"];
