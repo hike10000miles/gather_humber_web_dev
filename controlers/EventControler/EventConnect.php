@@ -50,5 +50,15 @@
             $event = new EventModel($result);
             return $event;
         }
+                
+        public function deleteEvent($eventModel)
+        {
+            $query = "DELETE FROM events
+                      WHERE Id = :id;";
+            $pdostmt = $this->_db->prepare($query);
+            $pdostmt-> bindValue(':id', $eventModel->getEventId());
+            $result = $pdostmt-> execute();
+            return $result;
+        }
     }
 ?>

@@ -39,7 +39,7 @@ class EventViewTemplate
                 <p>". $this->eventModel->getStreetName() . " ". $this->eventModel->getProvince() . " ". $this->eventModel->getCountry(). "</p>
                 <p>".$this->eventModel->getDescription()."</p>
                 <form action='".$link."' method='post'>
-                    <input type='hidden' name='id' value='".$this->eventModel->getLocationId()."'>
+                    <input type='hidden' name='id' value='".$this->eventModel->getEventId()."'>
                     <input type='submit'value='Delete'>
                 </form>
             </p>";

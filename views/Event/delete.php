@@ -13,10 +13,10 @@
 
     if(isset($_GET["id"])) {
         $event = $eventConnect->getEvent($_GET["id"]);
-        $locationViewTemplate = new LocationViewTemplate($location);
+        $eventViewTemplate = new EventViewTemplate($event);
     } elseif (isset($_POST['id'])) {
-        $location = $locationConnect->getLocation($_POST["id"]);
-        $result = $locationConnect->deleteLocation($location);
+        $event = $eventConnect->getEvent($_POST["id"]);
+        $result = $eventConnect->deleteEvent($event);
         if($result) {
             header("Location: http://localhost/gather_tryout_1");
             exit;
@@ -27,7 +27,7 @@
         echo "<p>Not Found!</p>";
     }
 
-    if($locationViewTemplate) {
-        echo $locationViewTemplate->displayLocationDelete();
+    if($eventViewTemplate) {
+        echo $eventViewTemplate->displayEventDelete();
     }
 ?>
