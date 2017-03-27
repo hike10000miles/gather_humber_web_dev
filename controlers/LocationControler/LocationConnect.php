@@ -16,7 +16,7 @@
         public function getAllBusinessLocations()
         {
             $allLocations = array();
-            $sqlQuery = "SELECT l.*, b.name BusinessName FROM location l JOIN business b ON l.Id = b.locationId;";
+            $sqlQuery = "SELECT l.*, b.name BusinessName FROM locations l JOIN business b ON l.Id = b.locationId;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt -> execute();
             $results = $pdostmt -> fetchAll();
@@ -30,7 +30,7 @@
         public function getLocations()
         {
             $allLocations = array();
-            $sqlQuery = "SELECT * FROM location;";
+            $sqlQuery = "SELECT * FROM locations;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt -> execute();
             $results = $pdostmt -> fetchAll();
@@ -44,7 +44,7 @@
 
         public function getBusinessLocation($id)
         {
-            $sqlQuery = "SELECT l.*, b.name BusinessName FROM location l JOIN business b ON l.Id = b.locationId, WHERE l.Id= :id;";
+            $sqlQuery = "SELECT l.*, b.name BusinessName FROM locations l JOIN business b ON l.Id = b.locationId, WHERE l.Id= :id;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt-> bindValue(':id', $id);
             $pdostmt-> execute();
@@ -55,7 +55,7 @@
 
         public function getLocation($id)
         {
-            $sqlQuery = "SELECT * FROM location WHERE Id= :id;";
+            $sqlQuery = "SELECT * FROM locations WHERE Id= :id;";
             $pdostmt = $this->_db->prepare($sqlQuery);
             $pdostmt-> bindValue(':id', $id);
             $pdostmt-> execute();
@@ -66,7 +66,7 @@
 
         public function createLocation($locationModel)
         {
-           $query = "INSERT INTO location
+           $query = "INSERT INTO locations
                         (StreetName, City, Province, Country, PostalCode)
                         VALUES(:streetName, :city, :province, :country, :postalCode);";
             $pdostmt = $this->_db->prepare($query);
@@ -81,7 +81,7 @@
 
         public function editLocation($locationModel)
         {
-            $query = "UPDATE location
+            $query = "UPDATE locations
                       SET StreetName= :streetName, City= :city, Province= :province, Country= :country, PostalCode= :postalCode
                       WHERE Id= :locationId;";
             $pdostmt = $this->_db->prepare($query);
@@ -97,7 +97,7 @@
 
         public function deleteLocation($locationModel)
         {
-            $query = "DELETE FROM location
+            $query = "DELETE FROM locations
                       WHERE Id = :id;";
             $pdostmt = $this->_db->prepare($query);
             $pdostmt-> bindValue(':id', $locationModel->getLocationId());

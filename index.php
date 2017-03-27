@@ -16,18 +16,18 @@
         include __root . "controlers/LocationControler/LocationConnect.php";
         
         $db = Connect::dbConnect();
-        $eventConnect = new EventConnect($db);
+        //$eventConnect = new EventConnect($db);
         $locationConnect = new LocationConnect($db);
-        $allEvents = $eventConnect->getEvents();
-        $allEventsTemplates = array();
+        //$allEvents = $eventConnect->getEvents();
+        //$allEventsTemplates = array();
         $allLocationsTemplates = array();
         $allLocations = $locationConnect->getLocations();
 
-        foreach($allEvents as $event)
-        {
-            $template = new EventViewTemplate($event);
-            array_push($allEventsTemplates, $template);
-        }
+        //foreach($allEvents as $event)
+        //{
+        //    $template = new EventViewTemplate($event);
+        //    array_push($allEventsTemplates, $template);
+        //}
 
         foreach($allLocations as $location)
         {
@@ -39,9 +39,9 @@
     <section>
         <h2>Events</h2>
         <?php
-            foreach ($allEventsTemplates as $template) {
-                echo $template->displayEventDetailsIndex();
-            }
+            //foreach ($allEventsTemplates as $template) {
+            //    echo $template->displayEventDetailsIndex();
+            //}
         ?>
     </section>
     <section>
